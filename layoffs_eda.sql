@@ -1,8 +1,6 @@
 -- ============================================================
 -- Project  : Layoffs Exploratory Data Analysis (EDA)
 -- Dataset  : layoffs_staging2 (cleaned tech layoffs 2020–2023)
--- Author   : Khaled Nabil
--- GitHub   : https://github.com/KhaledNabil10
 -- ============================================================
 -- Objectives:
 --   1. Explore overall layoff magnitudes
