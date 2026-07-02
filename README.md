@@ -1,12 +1,15 @@
-# 🧹 Layoffs Data Cleaning — MySQL
+# 🧹 Layoffs Data Cleaning & EDA — MySQL
 
-A structured data cleaning project using **MySQL**, applied to a real-world dataset of tech industry layoffs from 2020 to 2023.
+A structured data cleaning and exploratory data analysis project using **MySQL**, applied to a real-world dataset of tech industry layoffs from 2020 to 2023.
 
 ---
 
 ## 📌 Project Overview
 
-Raw data is rarely analysis-ready. This project demonstrates a complete data cleaning workflow in SQL, transforming a messy dataset into a clean, reliable one — ready for exploratory analysis or visualization.
+Raw data is rarely analysis-ready. This project covers two phases:
+
+1. **Data Cleaning** — transforming a messy dataset into a clean, reliable one
+2. **Exploratory Data Analysis (EDA)** — uncovering trends, patterns, and insights from the cleaned data
 
 ---
 
@@ -23,12 +26,25 @@ Raw data is rarely analysis-ready. This project demonstrates a complete data cle
 
 | Tool | Purpose |
 |------|---------|
-| MySQL 8.0 | Data cleaning & transformation |
-| SQL (DDL + DML) | Table creation, updates, deletes |
+| MySQL 8.0 | Data cleaning & analysis |
+| SQL (DDL + DML) | Table creation, updates, deletes, queries |
 
 ---
 
-## 🔄 Cleaning Steps
+## 📁 Project Structure
+
+```
+layoffs-data-cleaning-and-eda/
+│
+├── layoffs.csv                  # Raw dataset
+├── layoffs_data_cleaning.sql    # Phase 1: Full cleaning script
+├── layoffs_eda.sql              # Phase 2: Exploratory analysis
+└── README.md                    # Project documentation
+```
+
+---
+
+## 🔄 Phase 1: Data Cleaning Steps
 
 ### 1. 🗂️ Create a Staging Table
 Preserved the raw data by working entirely on a copy — ensuring the original dataset remains untouched and recoverable.
@@ -52,30 +68,35 @@ Dropped the temporary `row_num` column used during deduplication.
 
 ---
 
-## 📁 Project Structure
+## 🔍 Phase 2: Exploratory Data Analysis (EDA)
 
-```
-layoffs-data-cleaning/
-│
-├── layoffs.csv                  # Raw dataset
-├── layoffs_data_cleaning.sql    # Full cleaning script (commented)
-└── README.md                    # Project documentation
-```
+| # | Analysis |
+|---|----------|
+| 1 | Top 10 largest single layoff events |
+| 2 | Companies that laid off 100% of their workforce |
+| 3 | Total layoffs per company (all-time) |
+| 4 | Layoffs by industry |
+| 5 | Layoffs by country — total & average |
+| 6 | Layoffs by year |
+| 7 | Layoffs by funding stage |
+| 8 | Monthly layoff trend |
+| 9 | Rolling cumulative total over time |
+| 10 | Top 5 companies by layoffs per year (DENSE_RANK) |
+| 11 | Funding raised vs. layoff percentage by company |
+| 12 | Overall shutdown rate & average layoff percentage |
 
 ---
 
 ## 💡 Key SQL Concepts Used
 
-- `ROW_NUMBER()` window function
-- CTEs (Common Table Expressions)
+- `ROW_NUMBER()` and `DENSE_RANK()` window functions
+- `SUM() OVER()` for rolling totals
+- CTEs (Common Table Expressions) — including chained CTEs
 - Self JOIN for data imputation
 - `STR_TO_DATE()` for type conversion
+- `DATE_FORMAT()` for time-based grouping
 - `NULLIF()`, `TRIM()`, `TRIM(TRAILING ...)`
+- `CASE WHEN` for conditional aggregation
 - `ALTER TABLE` / `UPDATE` / `DELETE`
 
 ---
-
-## 👤 Author
-
-**Khaled Nabil**
-- GitHub: [@KhaledNabil10](https://github.com/KhaledNabil10)
